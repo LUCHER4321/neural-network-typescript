@@ -76,23 +76,30 @@ $$
 
 1. **Forward pass**: Compute all activations $a^{(k)}_i$ and weighted inputs $z^{(k)}_i$
 2. **Output layer error**:
-   $$
-   \frac{dC}{da^{(L)}_i} = 2 \times (a^{(L)}_i - y_i)
-   $$
+
+$$
+\frac{dC}{da^{(L)}_i} = 2 \times (a^{(L)}_i - y_i)
+$$
+
 3. **Backpropagate error** (for $k = L-1 \text{ to } 1$):
-   $$
-   \delta^{(k)}_i = \frac{dC}{da^{(k)}_i} \times \text{activation}'^{(k)}(z^{(k)}_i)
-   $$
-   $$
-   \frac{dC}{da^{(k - 1)}_j} = \sum_i \delta^{(k)}_i w^{(k)}_{ij}
-   $$
+
+$$
+\delta^{(k)}_i = \frac{dC}{da^{(k)}_i} \times \text{activation}'^{(k)}(z^{(k)}_i)
+$$
+
+$$
+\frac{dC}{da^{(k - 1)}_j} = \sum_i \delta^{(k)}_i w^{(k)}_{ij}
+$$
+
 4. **Compute gradients**:
-   $$
-   \nabla C (w^{(k)}_{ij}) = \delta^{(k)}_i \times a^{(k - 1)}_j
-   $$
-   $$
-   \nabla C (b^{(k)}_i) = \delta^{(k)}_i
-   $$
+
+$$
+\nabla C (w^{(k)}_{ij}) = \delta^{(k)}_i \times a^{(k - 1)}_j
+$$
+
+$$
+\nabla C (b^{(k)}_i) = \delta^{(k)}_i
+$$
 
 ## API Reference
 
